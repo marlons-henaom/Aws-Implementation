@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://kmre8hfhq8.execute-api.us-east-2.amazonaws.com/prod';
+    var invokeUrl = 'https://979ljjosw4.execute-api.us-east-2.amazonaws.com/prod';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -83,39 +83,39 @@ apigClientFactory.newClient = function (config) {
     
     
     
-    apigClient.capitaliseAndReversePost = function (params, body, additionalParams) {
+    apigClient.capitaliseandreversePost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var capitaliseAndReversePostRequest = {
+        var capitaliseandreversePostRequest = {
             verb: 'post'.toUpperCase(),
-            path: pathComponent + uritemplate('/capitaliseAndReverse').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/capitaliseandreverse').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(capitaliseAndReversePostRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(capitaliseandreversePostRequest, authType, additionalParams, config.apiKey);
     };
     
     
-    apigClient.capitaliseAndReverseOptions = function (params, body, additionalParams) {
+    apigClient.capitaliseandreverseOptions = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
         apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
         
-        var capitaliseAndReverseOptionsRequest = {
+        var capitaliseandreverseOptionsRequest = {
             verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/capitaliseAndReverse').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/capitaliseandreverse').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(capitaliseAndReverseOptionsRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(capitaliseandreverseOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
