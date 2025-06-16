@@ -100,6 +100,24 @@ apigClientFactory.newClient = function (config) {
         return apiGatewayClient.makeRequest(capitaliseandreversePostRequest, authType, additionalParams, config.apiKey);
     };
     
+    
+    apigClient.capitaliseandreverseOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var capitaliseandreverseOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/capitaliseandreverse').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(capitaliseandreverseOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
 
     return apigClient;
 };
